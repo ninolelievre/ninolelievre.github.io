@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width:100%;
+            height:auto;
+            display:block;
+
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 200px);
+            gap: 48px;
+            justify-content: center;
+        }
+        .big {
+            grid-column: span 3;
+            grid-row: span 3;
+        }
+
+        .med {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <img class="big" src="https://picsum.photos/id/230/400/400" alt="Image 1">
+        <img class="med" src="https://picsum.photos/id/200/400/400" alt="Image 2">
+        <img src="https://picsum.photos/id/200/400/400" alt="Image 3">
+        <img src="https://picsum.photos/id/200/400/400" alt="Image 4">
+        <img src="https://picsum.photos/id/200/400/400" alt="Image 5">
+        <img src="https://picsum.photos/id/200/400/400" alt="Image 6">
+        
+    </div>
+</body>
+</html>
