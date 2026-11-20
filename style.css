@@ -1,26 +1,94 @@
+@font-face {
+    font-family: "Nighthawk";
+    src: url("/fonts/Nighthawk.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Lunchtype";
+    src: url("/fonts/lunchtype22-regular-webfont.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Instrument";
+    src: url("Fonts/InstrumentSerif-Italic.woff2") format("woff2");
+}
+
 body {
     background-color: black;
     color: white;
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
-    max-width: 1200px;
+    font-family: "Lunchtype", sans-serif;
+    max-width: 1920px;
     margin: 0 auto;
     padding: 20px;
 }
 
-@font-face {
-  font-family: "Nighthawk";
-  src: url("/fonts/Nighthawk.otf") format("opentype");
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-@font-face {
-  font-family: "Lunchtype";
-  src: url("/fonts/lunchtype22-regular-webfont.woff2") format("woff2");
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover, nav a:active {
+    font-family: "Instrument";
 }
 
 
-body {
-  font-family: "Lunchtype", sans-serif;
+
+.grid a {
+    position: relative;
+    display: block;
 }
+
+.grid .title {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    z-index: 2;
+}
+
+.grid .title-bubble {
+    font-family: "Instrument";
+    border: 1px solid #fff;
+    padding: 4px 9px;
+    border-radius: 15px;
+}
+
+.grid a:hover .title {
+    opacity: 1;
+}
+
+.grid a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.2s;
+}
+
+.grid a:hover::before {
+    opacity: 1;
+}
+
+.grid a:hover .title {
+    z-index: 2;
+}
+
+
 
 .button {
     font-family: sans-serif;
@@ -30,7 +98,7 @@ body {
     border: 1px solid #000;
     padding: 3px 8px;
     border-radius: 15px;
-    }
+}
 
 
 img {
@@ -39,20 +107,13 @@ img {
     display: block;
 }
 
-p {
-}
 
 h1 {
     font-family: "Nighthawk", sans-serif;
-
-
-
 }
+
 span {
     color: white;
-}
-
-p span {
 }
 
 .alert {
