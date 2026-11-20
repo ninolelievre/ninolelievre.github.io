@@ -264,21 +264,18 @@ header {
     height: auto;
 }
 
-/* Étiquette en haut, derrière */
 .label[data-position="top"] {
     top: 4%;
     z-index: 1;
     transform: scale(0.78);
 }
 
-/* Étiquette au centre, devant et agrandie */
 .label[data-position="center"] {
     top: 28%;
     z-index: 3;
     transform: scale(1.08);
 }
 
-/* Étiquette en bas, derrière */
 .label[data-position="bottom"] {
     top: 52%;
     z-index: 2;
@@ -289,4 +286,23 @@ header {
     .label-stage {
         height: 110vw;
     }
+}
+
+
+
+/* Contact */
+
+.contact-details a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-details a:hover,
+.contact-details a:focus-visible {
+    font-family: "Instrument", sans-serif;
+}
+
+.contact-details a {
+    display: inline-block;
+    line-height: 1.4;
 }
