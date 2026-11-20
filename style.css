@@ -19,29 +19,43 @@ body {
     font-family: "Lunchtype", sans-serif;
     max-width: 1920px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 24px;
 }
 
 nav ul {
+    font-size: 20px;
     display: flex;
-    justify-content: flex-start;
-    gap: 24px;
+    gap: 30px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-
 nav a {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 0 8px;
+    line-height: 1;
     color: white;
     text-decoration: none;
+    white-space: nowrap;
 }
 
-nav a:hover, nav a:active {
+nav a:hover,
+nav a:active,
+nav a.active {
     font-family: "Instrument";
 }
 
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+}
 
 .grid a {
     position: relative;
@@ -49,6 +63,7 @@ nav a:hover, nav a:active {
 }
 
 .grid .title {
+    font-size: 20px;
     position: absolute;
     inset: 0;
     display: flex;
@@ -62,8 +77,8 @@ nav a:hover, nav a:active {
 .grid .title-bubble {
     font-family: "Instrument";
     border: 1px solid #fff;
-    padding: 4px 9px;
-    border-radius: 15px;
+    padding: 4px 10px;
+    border-radius: 20px;
 }
 
 .grid a:hover .title {
@@ -89,18 +104,6 @@ nav a:hover, nav a:active {
 }
 
 
-
-.button {
-    font-family: sans-serif;
-    background: #fff;
-    color: #000;
-    text-decoration: none;
-    border: 1px solid #000;
-    padding: 3px 8px;
-    border-radius: 15px;
-}
-
-
 img {
     width: 100%;
     height: auto;
@@ -109,7 +112,8 @@ img {
 
 
 h1 {
-    font-family: "Nighthawk", sans-serif;
+    font-family: "Nighthawk";
+    font-size: 20px;
 }
 
 span {
@@ -129,8 +133,154 @@ header {
 }
 
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+
+
+/*sauces*/
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3px;
+  width: 100%;
+  aspect-ratio: 1.9 / 1;
+}
+
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.gallery-image--large {
+  grid-row: span 2;
+}
+
+
+.project-description {
+  max-width: 1200px;
+  margin: 24px auto 60px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 60px;
+  border: 0;
+  background: rgb(0 0 0 / 94%);
+}
+
+.lightbox::backdrop {
+  background: rgb(0 0 0 / 94%);
+}
+
+.lightbox-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+}
+
+.lightbox button {
+  position: absolute;
+  z-index: 1;
+  border: 0;
+  background: none;
+  color: white;
+  font-size: 42px;
+  cursor: pointer;
+}
+
+.lightbox-close {
+  top: 16px;
+  right: 24px;
+}
+
+.lightbox-prev {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.lightbox-count {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+/*scroll*/
+
+.label-stage {
+  position: relative;
+  width: min(90vw, 520px);
+  height: 620px;
+  margin: 60px auto;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.label {
+  position: absolute;
+  left: 8%;
+  width: 84%;
+  transform-origin: center;
+  transition:
+    top 650ms cubic-bezier(.22, .7, .2, 1),
+    transform 650ms cubic-bezier(.22, .7, .2, 1),
+    opacity 650ms ease;
+  pointer-events: none;
+}
+
+.label img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Étiquette en haut, derrière */
+.label[data-position="top"] {
+  top: 4%;
+  z-index: 1;
+  transform: scale(0.78);
+}
+
+/* Étiquette au centre, devant et agrandie */
+.label[data-position="center"] {
+  top: 28%;
+  z-index: 3;
+  transform: scale(1.08);
+}
+
+/* Étiquette en bas, derrière */
+.label[data-position="bottom"] {
+  top: 52%;
+  z-index: 2;
+  transform: scale(0.78);
+}
+
+@media (max-width: 600px) {
+  .label-stage {
+    height: 110vw;
+  }
 }

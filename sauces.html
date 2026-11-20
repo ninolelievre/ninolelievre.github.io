@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauces Piquantes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Projets</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Nino Lelièvre</h1>
+    </header>
+
+    <main>
+        <div class="project-grid">
+            <button class="gallery-image gallery-image--large" aria-label="Afficher l’image 1 en plein écran">
+                <img src="images/sauces/page_sauce/pub sauce.png" alt="Présentation du projet Sauces Piquantes">
+            </button>
+
+            <button class="gallery-image" aria-label="Afficher l’image 2 en plein écran">
+                <img src="" alt="Détail du projet Sauces Piquantes">
+            </button>
+
+            <button class="gallery-image" aria-label="Afficher l’image 3 en plein écran">
+                <img src="images/sauces/image-3.jpg" alt="Autre vue du projet Sauces Piquantes">
+            </button>
+        </div>
+
+        <section class="project-description">
+            <h2>Sauces Piquantes</h2>
+            <p>texte</p>
+        </section>
+
+        <div class="label-stage" aria-label="Étiquettes du projet">
+            <div class="label" data-position="top">
+                <img src="images/sauces/page_sauce/Plan de travail 1.png" alt="Étiquette jaune">
+            </div>
+
+            <div class="label" data-position="center">
+                <img src="images/sauces/page_sauce/Plan de travail 2.png" alt="Étiquette rouge">
+            </div>
+
+            <div class="label" data-position="bottom">
+                <img src="images/sauces/page_sauce/Plan de travail 3.png" alt="Étiquette orange">
+            </div>
+        </div>
+    </main>
+
+    <dialog class="lightbox" aria-label="Visionneuse d’images">
+        <button class="lightbox-close" aria-label="Fermer">×</button>
+        <button class="lightbox-prev" aria-label="Image précédente">‹</button>
+        <img class="lightbox-image" src="" alt="">
+        <button class="lightbox-next" aria-label="Image suivante">›</button>
+        <p class="lightbox-count"></p>
+    </dialog>
+
+    <script>
+        const thumbnails = [...document.querySelectorAll(".gallery-image img")];
+        const lightbox = document.querySelector(".lightbox");
+        const lightboxImage = document.querySelector(".lightbox-image");
+        const counter = document.querySelector(".lightbox-count");
+        let currentIndex = 0;
+
+        function showImage(index) {
+            currentIndex = (index + thumbnails.length) % thumbnails.length;
+            lightboxImage.src = thumbnails[currentIndex].src;
+            lightboxImage.alt = thumbnails[currentIndex].alt;
+            counter.textContent = `${currentIndex + 1} / ${thumbnails.length}`;
+        }
+
+        thumbnails.forEach((image, index) => {
+            image.closest("button").addEventListener("click", () => {
+                showImage(index);
+                lightbox.showModal();
+            });
+        });
+
+        document.querySelector(".lightbox-prev").addEventListener("click", () => {
+            showImage(currentIndex - 1);
+        });
+
+        document.querySelector(".lightbox-next").addEventListener("click", () => {
+            showImage(currentIndex + 1);
+        });
+
+        document.querySelector(".lightbox-close").addEventListener("click", () => {
+            lightbox.close();
+        });
+
+        lightbox.addEventListener("click", event => {
+            if (event.target === lightbox) lightbox.close();
+        });
+
+        document.addEventListener("keydown", event => {
+            if (!lightbox.open) return;
+            if (event.key === "ArrowRight") showImage(currentIndex + 1);
+            if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+        });
+    </script>
+
+    <script>
+        const stage = document.querySelector(".label-stage");
+        const labels = [...stage.querySelectorAll(".label")];
+        const positions = ["top", "center", "bottom"];
+        let scrolling = false;
+
+        stage.addEventListener("wheel", event => {
+            event.preventDefault();
+
+            if (scrolling || Math.abs(event.deltaY) < 5) return;
+            scrolling = true;
+
+            const step = event.deltaY > 0 ? 1 : -1;
+
+            labels.forEach(label => {
+                const current = positions.indexOf(label.dataset.position);
+                const next = (current + step + positions.length) % positions.length;
+                label.dataset.position = positions[next];
+            });
+
+            setTimeout(() => {
+                scrolling = false;
+            }, 650);
+        }, { passive: false });
+    </script>
+</body>
+
+</html>
