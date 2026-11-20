@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(32.25806451612903,0,0,32.25806451612903,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="31" viewBox="0 0 31 31"><image width="31" height="31" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAACXBIWXMAAAsSAAALEgHS3X78AAAB9klEQVRIiaWW0ZGrMAxFj3be/7IdUAIlUAIl0MFSAiWkBErI64ASKIES2Aq0HzZZR7HBJp7RJGNkXUu6vraoKu8OEamBWlXnooWqetmACpgBDeyWvf5N8JsB3m3IWf/xRqkb4DvxucqJcRkc6A6+NZfBRaQWkUlEZhEZPKFKxpLlFenjyGsPNxybz/x2q4oJh+tVKuBifNuE33SJ7UB/AK5Af7LR1WaN6/8ddyQ3/9vEwFNH5xHc+K/me5PZmjUGXp+AK9AF/nMwP5hY00mcNpdwoc0RcFuRM+A4eFCBowCDAe8P5DZldY6ENsDgSfPU373n3q/DESoHuC/W9oOKLJmgTydGfNCiISIb8Gmm//uSJ9VNzZX7BC4iLU48Kp+lDdTiym2BAb5UdTvdudlNCUN3m/g743ufV5xIZUnro+cFwIvPvPKgi/8f9nzDkXME2hMOZQmLEmg2jv2PM+83lFq3+Y28VATSF0QKeM/aCs6ZNM9XMp/MghBkCeZzKtjGem4FZLfRAHfWp1BW7zHwyvdlJ8rI6+MhLHc0m4zs+xfwTHVLZWVvszHht2Hv+gJZTWUzRvxn47MSXMW7/SNv9Jl+AKhq65/WHbCp6i3mlwtePFR14eQV+867HeAHx4VLIxf8npi/qep6FbyE7R1/L9CVCNFK7Rekko6VCSGaGwAAAABJRU5ErkJggg=="></image></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(32.25806451612903,0,0,32.25806451612903,16.129032258064512,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="31" viewBox="0 0 30 31"><image width="30" height="31" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAfCAYAAADwbH0HAAAACXBIWXMAAAsSAAALEgHS3X78AAAB/UlEQVRIibVXbXHDMAx93RVAIITBwmCFkDEIhDJYxiAQAqEMljHIEMxDsAzB2w/bq6sojtKuutNdakt++rKs7kjiH+gAYAQwWRUebgRsAtgbgG8ADkBlUdzd4HEJ4FNZ/7CA3wI8AHhaOveewDnFVeClHDfwHvUA6o0G/ZikSKZcknScUyvkoMjkZGcsF/rMgQchOyoyE8niGuApA+wMRjYKSEtyCIZOMSKpQJUB1bw+ir1eAFbUo0KS9ZZQM1geZQ/JuuNliCvmo3fSiiunQJ69PihroA/3Gg1a4gv6MGrVTfrwFQnwuBGUJLu16itI1iQ7YUifgDT0kToZQUeSxWrZC244T8WorGVBSV7VMlsAL2LtC8AJvtstPY0Xz+Y+2Sjh39US/nVx4pC4/qgc2gW2E23lL8M1hO9Up6fPtSltW0FjH+7C75rzRjKG/TpnCGirRhcMjJUeDY33d1jQIxcisaYUPUi7UpvsReDSYHzaZFY9nnj2VOvn6WFb2i1k60tpFKAF502/TfYtXv9Fbh/u3jP81BGvkIOfPlJqlatUJt8OwDuW57APpNeTC1UneOnJdEIu98gcKUJt4Vz+pGytyPQUk4mlZZbQ5+dI2kRZwA+JJXzK3EzpTsCrZPkL4zJ7r9eAAjDnWJudnMzbFrYKFqFAXAA98fKOb+ZfL6YKBK6uSowAAAAASUVORK5CYII="></image></svg></g></g></svg></g></svg>
