@@ -314,17 +314,32 @@ body {
 
 .singlePost__top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    column-gap: 8px;                                  
+    row-gap: 0;
     align-items: stretch;
-    column-gap: var(--column-gap);
     margin-top: clamp(54px, 7vw, 106px);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 0;
 }
 
 .singlePost__top__content {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 var(--page-gutter);
+    min-width: 0;
+    padding: 0 0 0 24px; /* 24px = padding du body, aligné avec « Année » */
+}
+
+.singlePost__top {
+    grid-template-rows: auto;
+}
+
+.singlePost__top__content {
+    height: 0;        /* le texte ne contribue plus à la hauteur de la ligne */
+    min-height: 100%; /* mais la case reprend celle de l'image */
 }
 
 .singlePost__top__content__text {
