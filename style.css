@@ -134,6 +134,27 @@ header {
     box-sizing: border-box;
 }
 
+.singlePost__introText {
+    position: relative;}
+
+.titleNav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.titleNav--prev {
+    left: 0;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 40 40'><path d='M34 20H8M18 9L7 20l11 11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>") 16 16, w-resize;
+}
+
+.titleNav--next {
+    right: 0;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 40 40'><path d='M6 20h26M22 9l11 11-11 11' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>") 16 16, e-resize;
+}
+
 /*sauces*/
 
 .singlePost__content__3col {
@@ -251,6 +272,7 @@ body {
         height: 110vw;
     }
 }
+
 
 
 /*Amysum/Gangsters */
