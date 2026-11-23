@@ -128,9 +128,6 @@ header {
     align-items: baseline;
 }
 
-
-
-
 /*sauces*/
 
 .singlePost__content__3col {
@@ -335,7 +332,6 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(32px, 5vw, 80px) 8px;
     align-items: start;
-
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -366,10 +362,6 @@ body {
         grid-template-columns: 1fr;
     }
 }
-
-
-
-
 
 /* Contact */
 
