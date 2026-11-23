@@ -127,6 +127,12 @@ header {
     justify-content: space-between;
     align-items: baseline;
 }
+.singlePost__content__2col img[src$=".gif"] {
+    object-fit: contain;
+    background: #000;
+    padding: clamp(16px, 3vw, 48px);
+    box-sizing: border-box;
+}
 
 /*sauces*/
 
