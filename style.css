@@ -323,72 +323,207 @@ header {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;  
+    object-fit: cover;
 }
+
 .lightbox {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  margin: 0;
-  padding: 50px 70px;
-  border: 0;
-  background: rgb(0 0 0 / 96%);
-  color: white;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 50px 70px;
+    border: 0;
+    background: rgb(0 0 0 / 96%);
+    color: white;
 }
 
 .lightbox::backdrop {
-  background: rgb(0 0 0 / 96%);
+    background: rgb(0 0 0 / 96%);
 }
 
 .lightbox img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .lightbox button {
-  position: absolute;
-  z-index: 1;
-  padding: 8px;
-  border: 0;
-  background: transparent;
-  color: white;
-  font: inherit;
-  font-size: 42px;
-  cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    padding: 8px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font: inherit;
+    font-size: 42px;
+    cursor: pointer;
 }
 
 .lightbox-close {
-  top: 12px;
-  right: 22px;
+    top: 12px;
+    right: 22px;
 }
 
 .lightbox-prev,
 .lightbox-next {
-  top: 50%;
-  transform: translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .lightbox-prev {
-  left: 12px;
+    left: 12px;
 }
 
 .lightbox-next {
-  right: 12px;
+    right: 12px;
 }
 
 .lightbox-count {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  margin: 0;
-  transform: translateX(-50%);
-  font-size: 14px;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    margin: 0;
+    transform: translateX(-50%);
+    font-size: 14px;
 }
+
+
+
+
+/*Amysum*/
+
+.singlePost h1 {
+    margin: 0;
+    padding: 0 var(--page-gutter);
+    letter-spacing: -0.03em;
+    font-size: 35px;
+
+}
+
+.singlePost__specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    list-style: none;
+    margin: clamp(54px, 7.2vw, 108px) var(--page-gutter) 0;
+    padding: clamp(20px, 1.7vw, 26px) 0 0;
+    border-top: 1px solid var(--ink);
+    font: 400 clamp(16px, 1.45vw, 22px)/1.45 var(--sans);
+}
+
+.singlePost__specs>li:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.textBaton--bold {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.textBaton--uppercase {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+.singlePost__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    column-gap: var(--column-gap);
+    margin-top: clamp(54px, 7vw, 106px);
+}
+
+.singlePost__top__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    padding: 0 var(--page-gutter);
+}
+
+.singlePost__top__content__text {
+    position: sticky;
+    bottom: 0; 
+    width: 80%;
+    max-width: none;
+}
+
+.text--wysiwyg p {
+    margin: 0; 
+}
+
+.singlePost__top__image,
+.image-container {
+    min-width: 0;
+    margin: 0;
+}
+
+.singlePost__top__image img {
+    aspect-ratio: 1.12 / 1;
+    object-fit: cover;
+}
+
+.singlePost__content {
+    margin-top: clamp(64px, 8.5vw, 130px);
+}
+
+.singlePost__content__2col {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--column-gap);
+    row-gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+    width: 100%;
+}
+
+.singlePost__content__2col>div:first-child,
+.singlePost__content__2col>div:nth-child(2) {
+    padding-top: 0;
+
+}
+
+
+.singlePost__content__2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 80px) 8px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.singlePost__content__2col > * {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+.singlePost__content__2col img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.84 / 1;
+    object-fit: cover;
+}
+
+.singlePost__strate {
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .singlePost__content__2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
 
 
 /* Contact */
