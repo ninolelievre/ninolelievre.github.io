@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sauces Piquantes</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <nav>
@@ -18,94 +16,81 @@
         </nav>
         <h1>Nino Lelièvre</h1>
     </header>
-
-    <main>
-        <div class="project-grid">
-            <button class="gallery-image gallery-image--large" aria-label="Afficher l’image 1 en plein écran">
-                <img src="images/sauces/page_sauce/pub sauce.png" alt="Présentation du projet Sauces Piquantes">
-            </button>
-
-            <button class="gallery-image" aria-label="Afficher l’image 2 en plein écran">
-                <img src="images/sauces/sauces.png" alt="Détail du projet Sauces Piquantes">
-            </button>
-
-            <button class="gallery-image" aria-label="Afficher l’image 3 en plein écran">
-                <img src="images/sauces/page_sauce/box_orange.png" alt="Autre vue du projet Sauces Piquantes">
-            </button>
+    <br>
+    <br>
+    <br>
+    <article class="pageContent singlePost">
+        <div class="container">
+            <div class="singlePost__introText title title--giant">
+                <h1>SAUCES PIQUANTES</h1>
+            </div>
+            <br>
+            <ul class="singlePost__specs textBaton textBaton--normal grid hasNotClient">
+                <li>
+                    <div class="textBaton--bold">Année</div>
+                    <div class="textBaton">2026</div>
+                </li>
+                <li class="singlePost__specs__role">
+                    <div class="textBaton--bold">Type</div>
+                    <ul class="textBaton">
+                        <li>Identité Visuelle</li>
+                        <li>Packaging</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-
-        <section class="project-description">
-            <h2>Sauces Piquantes</h2>
-            <p>lore ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl
-            </p>
-        </section>
-
-        <div class="label-stage" aria-label="Étiquettes du projet">
-            <div class="label" data-position="top">
-                <img src="images/sauces/page_sauce/Plan de travail 1.png" alt="Étiquette jaune">
+        <div class="singlePost__strate singlePost__top grid grid--2cl">
+            <div class="singlePost__top__content d-flex flex-wrap container">
+                <div class="singlePost__top__content__text text text--wysiwyg text--medium block-width-xs">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor laudantium obcaecati nulla
+                        laborum sit in asperiores expedita dolores vitae, unde error ea sint soluta. Aspernatur, fugiat
+                        ex. A, delectus placeat?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos autem,
+                        veritatis ab vel ducimus nam quod. Tempora nobis odio est? Ad ipsum nihil, alias laborum
+                        adipisci laboriosam eveniet neque sint.</p>
+                </div>
             </div>
-
-            <div class="label" data-position="center">
-                <img src="images/sauces/page_sauce/Plan de travail 2.png" alt="Étiquette rouge">
-            </div>
-
-            <div class="label" data-position="bottom">
-                <img src="images/sauces/page_sauce/Plan de travail 3.png" alt="Étiquette orange">
+            <div class="singlePost__top__image">
+                <figure class="image-container viewportDetecting">
+                    <img src="images/sauces/sauces.png" alt="image 1">
+                </figure>
             </div>
         </div>
-    </main>
+        <div class="singlePost__content singlePost__strate">
+            <div class="singlePost__content__3col grid grid--3cl">
+                <div>
+                    <figure class="image-container viewportDetecting">
+                        <img src="images/sauces/page_sauce/fond_1.png" alt="image 1">
+                    </figure>
+                </div>
+                <div>
+                    <figure class="image-container viewportDetecting">
+                        <img src="images/sauces/page_sauce/fond_2.png" alt="image 2">
+                    </figure>
+                </div>
+                <div>
+                    <figure class="image-container viewportDetecting">
+                        <img src="images/sauces/page_sauce/fond_3.png" alt="image 3">
+                    </figure>
+                </div>
+            </div>
+            <div class="label-stage" aria-label="Étiquettes du projet">
+                <div class="label" data-position="top">
+                    <img src="images/sauces/page_sauce/Plan de travail 1.png" alt="Étiquette jaune">
+                </div>
 
-    <dialog class="lightbox" aria-label="Visionneuse d’images">
-        <button class="lightbox-close" aria-label="Fermer">×</button>
-        <button class="lightbox-prev" aria-label="Image précédente">‹</button>
-        <img class="lightbox-image" src="" alt="">
-        <button class="lightbox-next" aria-label="Image suivante">›</button>
-        <p class="lightbox-count"></p>
-    </dialog>
+                <div class="label" data-position="center">
+                    <img src="images/sauces/page_sauce/Plan de travail 2.png" alt="Étiquette rouge">
+                </div>
 
-    <script>
-        const thumbnails = [...document.querySelectorAll(".gallery-image img")];
-        const lightbox = document.querySelector(".lightbox");
-        const lightboxImage = document.querySelector(".lightbox-image");
-        const counter = document.querySelector(".lightbox-count");
-        let currentIndex = 0;
-
-        function showImage(index) {
-            currentIndex = (index + thumbnails.length) % thumbnails.length;
-            lightboxImage.src = thumbnails[currentIndex].src;
-            lightboxImage.alt = thumbnails[currentIndex].alt;
-            counter.textContent = `${currentIndex + 1} / ${thumbnails.length}`;
-        }
-
-        thumbnails.forEach((image, index) => {
-            image.closest("button").addEventListener("click", () => {
-                showImage(index);
-                lightbox.showModal();
-            });
-        });
-
-        document.querySelector(".lightbox-prev").addEventListener("click", () => {
-            showImage(currentIndex - 1);
-        });
-
-        document.querySelector(".lightbox-next").addEventListener("click", () => {
-            showImage(currentIndex + 1);
-        });
-
-        document.querySelector(".lightbox-close").addEventListener("click", () => {
-            lightbox.close();
-        });
-
-        lightbox.addEventListener("click", event => {
-            if (event.target === lightbox) lightbox.close();
-        });
-
-        document.addEventListener("keydown", event => {
-            if (!lightbox.open) return;
-            if (event.key === "ArrowRight") showImage(currentIndex + 1);
-            if (event.key === "ArrowLeft") showImage(currentIndex - 1);
-        });
-    </script>
+                <div class="label" data-position="bottom">
+                    <img src="images/sauces/page_sauce/Plan de travail 3.png" alt="Étiquette orange">
+                </div>
+            </div>
+             <figure class="singlePost__fullImage">
+                    <img src="images/sauces/page_sauce/pub sauce.png" alt="affiches">
+                </figure>
+        </div>
+    </article>
 
     <script>
         const stage = document.querySelector(".label-stage");
@@ -133,5 +118,4 @@
         }, { passive: false });
     </script>
 </body>
-
 </html>

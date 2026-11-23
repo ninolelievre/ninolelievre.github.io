@@ -18,86 +18,58 @@
         </nav>
         <h1>Nino Lelièvre</h1>
     </header>
-
-    <main>
-        <div class="project-gallery">
-            <button class="gallery-item gallery-item--featured" aria-label="Afficher la première image en grand">
-                <img src="images/gangsters/Mockup.png" alt="Mockup 1 Gangsters">
-            </button>
-
-            <button class="gallery-item" aria-label="Afficher la deuxième image en grand">
-                <img src="images/gangsters/Three_Books_Box_Mockup_1.png" alt="coffret 1">
-            </button>
-
-            <button class="gallery-item" aria-label="Afficher la troisième image en grand">
-                <img src="images/gangsters/Three_Books_Box_Mockup_5.png" alt="coffret 2">
-            </button>
+    <br>
+    <br>
+    <br>
+    <article class="pageContent singlePost">
+        <div class="container">
+            <div class="singlePost__introText title title--giant">
+                <h1>GANGSTERS</h1>
+            </div>
+            <br>
+            <ul class="singlePost__specs textBaton textBaton--normal grid hasNotClient">
+                <li>
+                    <div class="textBaton--bold">Année</div>
+                    <div class="textBaton">2025</div>
+                </li>
+                <li class="singlePost__specs__role">
+                    <div class="textBaton--bold">Type</div>
+                    <ul class="textBaton">
+                        <li>Édition</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </main>
+        <div class="singlePost__strate singlePost__top grid grid--2cl">
+            <div class="singlePost__top__content d-flex flex-wrap container">
+                <div class="singlePost__top__content__text text text--wysiwyg text--medium block-width-xs">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor laudantium obcaecati nulla
+                        laborum sit in asperiores expedita dolores vitae, unde error ea sint soluta. Aspernatur, fugiat
+                        ex. A, delectus placeat?. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos autem,
+                        veritatis ab vel ducimus nam quod. Tempora nobis odio est? Ad ipsum nihil, alias laborum
+                        adipisci laboriosam eveniet neque sint.</p>
+                </div>
+            </div>
+            <div class="singlePost__top__image">
+                <figure class="image-container viewportDetecting">
+                    <img src="images/gangsters/gangsters.jpg" alt="image 1">
+                </figure>
+            </div>
+        </div>
 
-    <dialog class="lightbox" aria-label="Galerie d’images">
-        <button class="lightbox-close" aria-label="Fermer la galerie">×</button>
-        <button class="lightbox-prev" aria-label="Image précédente">‹</button>
-        <img src="" alt="">
-        <button class="lightbox-next" aria-label="Image suivante">›</button>
-        <p class="lightbox-count"></p>
-    </dialog>
-
-    <script>
-        const galleryImages = [...document.querySelectorAll(".gallery-item img")];
-        const lightbox = document.querySelector(".lightbox");
-        const lightboxImage = lightbox.querySelector("img");
-        const count = lightbox.querySelector(".lightbox-count");
-        let currentImage = 0;
-        let touchStartX = 0;
-
-        function showImage(index) {
-            currentImage = (index + galleryImages.length) % galleryImages.length;
-            lightboxImage.src = galleryImages[currentImage].src;
-            lightboxImage.alt = galleryImages[currentImage].alt;
-            count.textContent = `${currentImage + 1} / ${galleryImages.length}`;
-        }
-
-        galleryImages.forEach((image, index) => {
-            image.closest("button").addEventListener("click", () => {
-                showImage(index);
-                lightbox.showModal();
-            });
-        });
-
-        lightbox.querySelector(".lightbox-prev").addEventListener("click", () => {
-            showImage(currentImage - 1);
-        });
-
-        lightbox.querySelector(".lightbox-next").addEventListener("click", () => {
-            showImage(currentImage + 1);
-        });
-
-        lightbox.querySelector(".lightbox-close").addEventListener("click", () => {
-            lightbox.close();
-        });
-
-        lightbox.addEventListener("click", event => {
-            if (event.target === lightbox) lightbox.close();
-        });
-
-        document.addEventListener("keydown", event => {
-            if (!lightbox.open) return;
-            if (event.key === "ArrowLeft") showImage(currentImage - 1);
-            if (event.key === "ArrowRight") showImage(currentImage + 1);
-        });
-
-        lightbox.addEventListener("touchstart", event => {
-            touchStartX = event.changedTouches[0].screenX;
-        }, { passive: true });
-
-        lightbox.addEventListener("touchend", event => {
-            const distance = event.changedTouches[0].screenX - touchStartX;
-            if (Math.abs(distance) < 50) return;
-            showImage(currentImage + (distance < 0 ? 1 : -1));
-        }, { passive: true });
-    </script>
-
+        <div class="singlePost__content singlePost__strate">
+            <div class="singlePost__content__2col singlePost__strate grid grid--2cl">
+                <div>
+                    <figure class="image-container viewportDetecting">
+                        <img src="images/gangsters/Three_Books_Box_Mockup_1.png" alt="image 1">
+                    </figure>
+                </div>
+                <div>
+                    <figure class="image-container viewportDetecting">
+                        <img src="images/gangsters/Three_Books_Box_Mockup_5.png" alt="image 1">
+                    </figure>
+                </div>
+            </div>
+    </article>
 </body>
-
 </html>
