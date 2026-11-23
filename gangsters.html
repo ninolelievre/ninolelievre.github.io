@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,86 @@
         </nav>
         <h1>Nino Lelièvre</h1>
     </header>
-<body>
-    
+
+    <main>
+        <div class="project-gallery">
+            <button class="gallery-item gallery-item--featured" aria-label="Afficher la première image en grand">
+                <img src="images/gangsters/image-1.jpg" alt="Mockup 1 Gangsters">
+            </button>
+
+            <button class="gallery-item" aria-label="Afficher la deuxième image en grand">
+                <img src="images/gangsters/image-2.jpg" alt="coffret 1">
+            </button>
+
+            <button class="gallery-item" aria-label="Afficher la troisième image en grand">
+                <img src="images/gangsters/image-3.jpg" alt="coffret 2">
+            </button>
+        </div>
+    </main>
+
+    <dialog class="lightbox" aria-label="Galerie d’images">
+        <button class="lightbox-close" aria-label="Fermer la galerie">×</button>
+        <button class="lightbox-prev" aria-label="Image précédente">‹</button>
+        <img src="" alt="">
+        <button class="lightbox-next" aria-label="Image suivante">›</button>
+        <p class="lightbox-count"></p>
+    </dialog>
+
+    <script>
+        const galleryImages = [...document.querySelectorAll(".gallery-item img")];
+        const lightbox = document.querySelector(".lightbox");
+        const lightboxImage = lightbox.querySelector("img");
+        const count = lightbox.querySelector(".lightbox-count");
+        let currentImage = 0;
+        let touchStartX = 0;
+
+        function showImage(index) {
+            currentImage = (index + galleryImages.length) % galleryImages.length;
+            lightboxImage.src = galleryImages[currentImage].src;
+            lightboxImage.alt = galleryImages[currentImage].alt;
+            count.textContent = `${currentImage + 1} / ${galleryImages.length}`;
+        }
+
+        galleryImages.forEach((image, index) => {
+            image.closest("button").addEventListener("click", () => {
+                showImage(index);
+                lightbox.showModal();
+            });
+        });
+
+        lightbox.querySelector(".lightbox-prev").addEventListener("click", () => {
+            showImage(currentImage - 1);
+        });
+
+        lightbox.querySelector(".lightbox-next").addEventListener("click", () => {
+            showImage(currentImage + 1);
+        });
+
+        lightbox.querySelector(".lightbox-close").addEventListener("click", () => {
+            lightbox.close();
+        });
+
+        lightbox.addEventListener("click", event => {
+            if (event.target === lightbox) lightbox.close();
+        });
+
+        document.addEventListener("keydown", event => {
+            if (!lightbox.open) return;
+            if (event.key === "ArrowLeft") showImage(currentImage - 1);
+            if (event.key === "ArrowRight") showImage(currentImage + 1);
+        });
+
+        lightbox.addEventListener("touchstart", event => {
+            touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener("touchend", event => {
+            const distance = event.changedTouches[0].screenX - touchStartX;
+            if (Math.abs(distance) < 50) return;
+            showImage(currentImage + (distance < 0 ? 1 : -1));
+        }, { passive: true });
+    </script>
+
 </body>
+
 </html>
