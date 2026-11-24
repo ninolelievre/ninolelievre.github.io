@@ -152,7 +152,7 @@
             const distance = swipeStartY - event.clientY;
 
             if (Math.abs(distance) > 40) {
-                rotateLabels(distance > 0 ? 1 : -1);
+                rotateLabels(distance < 0 ? 1 : -1);
             }
 
             swipeStartY = null;
