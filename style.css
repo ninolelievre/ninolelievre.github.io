@@ -105,7 +105,7 @@ nav a.active {
 }
 
 /* lien texte paragraphe */
-.grid p a{
+.grid p a {
     display: inline;
     color: currentColor;
 }
@@ -143,6 +143,7 @@ header {
     justify-content: space-between;
     align-items: baseline;
 }
+
 .singlePost__content__2col img[src$=".gif"] {
     object-fit: contain;
     background: #000;
@@ -151,7 +152,8 @@ header {
 }
 
 .singlePost__introText {
-    position: relative;}
+    position: relative;
+}
 
 .titleNav {
     position: absolute;
@@ -207,7 +209,7 @@ header {
 .singlePost__fullImage {
     width: 100vw;
     max-width: 100vw;
-    margin: 60px 0 0 calc(50% - 50vw); 
+    margin: 60px 0 0 calc(50% - 50vw);
     padding: 0;
     border: 0;
 }
@@ -322,8 +324,8 @@ body {
 
 .singlePost__top {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); 
-    column-gap: 8px;                                  
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 8px;
     row-gap: 0;
     align-items: stretch;
     margin-top: clamp(54px, 7vw, 106px);
@@ -338,7 +340,7 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     min-width: 0;
-    padding: 0 0 0 24px; 
+    padding: 0 0 0 24px;
 }
 
 .singlePost__top {
@@ -346,8 +348,8 @@ body {
 }
 
 .singlePost__top__content {
-    height: 0;        
-    min-height: 100%; 
+    height: 0;
+    min-height: 100%;
 }
 
 .singlePost__top__content__text {
@@ -451,26 +453,36 @@ body {
         padding: 0 4px;
     }
 
-    /* Grille de projets sur l’accueil */
+    /* Accueil : deux colonnes */
     main.grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* Titres et informations des projets */
+    /* Pages projet : une colonne */
     .singlePost h1 {
         padding-inline: 16px;
         font-size: clamp(24px, 8vw, 35px);
     }
 
     .singlePost__specs {
+        grid-template-columns: 1fr;
         gap: 16px;
         margin-right: 16px;
         margin-left: 16px;
     }
 
-    /* Texte au-dessus de l’image principale */
+    .singlePost__specs>li:nth-child(2) {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .singlePost__top,
+    .singlePost__content__2col,
+    .singlePost__content__3col {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .singlePost__top {
-        grid-template-columns: 1fr;
         row-gap: 24px;
         margin-top: 48px;
     }
@@ -486,14 +498,12 @@ body {
         width: 100%;
     }
 
-    /* Galeries */
     .singlePost__content {
         margin-top: 48px;
     }
 
     .singlePost__content__2col,
     .singlePost__content__3col {
-        grid-template-columns: 1fr;
         gap: 24px;
     }
 
@@ -501,13 +511,11 @@ body {
         margin-top: 32px;
     }
 
-    /* Étiquettes du projet Sauces */
     .label-stage {
         height: 110vw;
         margin: 40px auto;
     }
 
-    /* Page Contact */
     .text_contact {
         font-size: clamp(24px, 7vw, 30px);
         line-height: 1.15;
