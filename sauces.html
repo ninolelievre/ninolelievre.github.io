@@ -115,14 +115,24 @@
             });
         }
 
+        let wheelDelta = 0;
+
         stage.addEventListener("wheel", event => {
-            if (Math.abs(event.deltaY) < 5) return;
+            if (event.deltaY === 0) return;
 
             event.preventDefault();
+
             if (scrolling) return;
 
+            wheelDelta += event.deltaY;
+
+            if (Math.abs(wheelDelta) < 25) return;
+
+            const step = wheelDelta > 0 ? 1 : -1;
+            wheelDelta = 0;
             scrolling = true;
-            rotateLabels(event.deltaY > 0 ? 1 : -1);
+
+            rotateLabels(step);
 
             setTimeout(() => {
                 scrolling = false;
@@ -142,7 +152,7 @@
             const distance = swipeStartY - event.clientY;
 
             if (Math.abs(distance) > 40) {
-                rotateLabels(distance > 0 ? 1 : -1);
+                rotateLabels(distance > 0 ? -1 : 1);
             }
 
             swipeStartY = null;
@@ -151,28 +161,6 @@
         stage.addEventListener("pointercancel", () => {
             swipeStartY = null;
         });
-
-        let touchStartY = null;
-
-        stage.addEventListener("touchstart", event => {
-            touchStartY = event.changedTouches[0].clientY;
-        }, { passive: true });
-
-        stage.addEventListener("touchend", event => {
-            if (touchStartY === null) return;
-
-            const distance = touchStartY - event.changedTouches[0].clientY;
-
-            if (Math.abs(distance) > 40) {
-                rotateLabels(distance > 0 ? 1 : -1);
-            }
-
-            touchStartY = null;
-        }, { passive: true });
-
-        stage.addEventListener("touchcancel", () => {
-            touchStartY = null;
-        }, { passive: true });
     </script>
 </body>
 
