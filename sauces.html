@@ -53,7 +53,8 @@
                     <p>Conception de l’identité visuelle d’une gamme de trois sauces en édition limitée pour la marque
                         Tabasco.<br>
                         <br>
-                        L’objectif de ce projet était de communiquer des saveurs originales, exotiques et intenses qui secouent le palais.
+                        L’objectif de ce projet était de communiquer des saveurs originales, exotiques et intenses qui
+                        secouent le palais.
                     </p>
                 </div>
             </div>
@@ -123,6 +124,31 @@
                 scrolling = false;
             }, 650);
         }, { passive: false });
+
+        let swipeStartY = null;
+
+        stage.addEventListener("pointerdown", event => {
+            if (!event.isPrimary || event.button > 0) return;
+
+            swipeStartY = event.clientY;
+            stage.setPointerCapture(event.pointerId);
+        });
+
+        stage.addEventListener("pointerup", event => {
+            if (swipeStartY === null) return;
+
+            const distance = swipeStartY - event.clientY;
+
+            if (Math.abs(distance) > 40) {
+                rotateLabels(distance > 0 ? 1 : -1);
+            }
+
+            swipeStartY = null;
+        });
+
+        stage.addEventListener("pointercancel", () => {
+            swipeStartY = null;
+        });
     </script>
 </body>
 

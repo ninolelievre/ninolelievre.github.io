@@ -475,7 +475,6 @@ body {
     }
 
 
-    /* Pages projet : une colonne */
     .singlePost h1 {
         padding-inline: 16px;
         font-size: clamp(24px, 8vw, 35px);
