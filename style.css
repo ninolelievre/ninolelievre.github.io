@@ -414,6 +414,10 @@ body {
 
 /* Contact */
 
+.text_contact {
+    font-size: 30px;
+}
+
 .contact-details a {
     color: inherit;
     text-decoration: none;
