@@ -105,27 +105,29 @@
         const labels = [...stage.querySelectorAll(".label")];
         const positions = ["top", "center", "bottom"];
         let scrolling = false;
+        let swipeStartY = null;
 
-        stage.addEventListener("wheel", event => {
-            event.preventDefault();
-
-            if (scrolling || Math.abs(event.deltaY) < 5) return;
-            scrolling = true;
-
-            const step = event.deltaY > 0 ? 1 : -1;
-
+        function rotateLabels(step) {
             labels.forEach(label => {
                 const current = positions.indexOf(label.dataset.position);
                 const next = (current + step + positions.length) % positions.length;
                 label.dataset.position = positions[next];
             });
+        }
+
+        stage.addEventListener("wheel", event => {
+            if (Math.abs(event.deltaY) < 5) return;
+
+            event.preventDefault();
+            if (scrolling) return;
+
+            scrolling = true;
+            rotateLabels(event.deltaY > 0 ? 1 : -1);
 
             setTimeout(() => {
                 scrolling = false;
             }, 650);
         }, { passive: false });
-
-        let swipeStartY = null;
 
         stage.addEventListener("pointerdown", event => {
             if (!event.isPrimary || event.button > 0) return;
