@@ -164,7 +164,7 @@
             const distance = touchStartY - event.changedTouches[0].clientY;
 
             if (Math.abs(distance) > 40) {
-                rotateLabels(distance > 0 ? -1 : 1);
+                rotateLabels(distance > 0 ? 1 : -1);
             }
 
             touchStartY = null;
