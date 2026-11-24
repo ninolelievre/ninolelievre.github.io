@@ -432,3 +432,88 @@ body {
     display: inline-block;
     line-height: 1.4;
 }
+
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    nav ul {
+        gap: 12px;
+        font-size: 18px;
+    }
+
+    nav a {
+        width: auto;
+        padding: 0 4px;
+    }
+
+    /* Grille de projets sur l’accueil */
+    main.grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Titres et informations des projets */
+    .singlePost h1 {
+        padding-inline: 16px;
+        font-size: clamp(24px, 8vw, 35px);
+    }
+
+    .singlePost__specs {
+        gap: 16px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+    /* Texte au-dessus de l’image principale */
+    .singlePost__top {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+        margin-top: 48px;
+    }
+
+    .singlePost__top__content {
+        height: auto;
+        min-height: 0;
+        padding: 0 16px;
+    }
+
+    .singlePost__top__content__text {
+        position: static;
+        width: 100%;
+    }
+
+    /* Galeries */
+    .singlePost__content {
+        margin-top: 48px;
+    }
+
+    .singlePost__content__2col,
+    .singlePost__content__3col {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .singlePost__fullImage {
+        margin-top: 32px;
+    }
+
+    /* Étiquettes du projet Sauces */
+    .label-stage {
+        height: 110vw;
+        margin: 40px auto;
+    }
+
+    /* Page Contact */
+    .text_contact {
+        font-size: clamp(24px, 7vw, 30px);
+        line-height: 1.15;
+    }
+
+    .contact-details {
+        margin-top: 48px;
+    }
+}
