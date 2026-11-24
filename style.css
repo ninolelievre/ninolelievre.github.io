@@ -474,6 +474,11 @@ body {
         background: rgb(0 0 0 / 45%);
     }
 
+    .label-stage {
+        height: 110vw;
+        margin: 40px auto;
+        touch-action: none;
+    }
 
     .singlePost h1 {
         padding-inline: 16px;
