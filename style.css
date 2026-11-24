@@ -453,17 +453,18 @@ body {
         padding: 0 4px;
     }
 
-    /* Accueil : deux colonnes */
-    main.grid {
+
+
+    main>.grid {
         grid-template-columns: 1fr;
         gap: 8px;
     }
 
-    main.grid .title {
+    main>.grid .title {
         opacity: 1;
     }
 
-    main.grid .title-bubble {
+    main>.grid .title-bubble {
         box-sizing: border-box;
         max-width: calc(100% - 32px);
         padding: 0.3em 0.75em;
@@ -472,7 +473,8 @@ body {
         white-space: nowrap;
         background: rgb(0 0 0 / 45%);
     }
-    
+
+
     /* Pages projet : une colonne */
     .singlePost h1 {
         padding-inline: 16px;
