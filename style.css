@@ -22,6 +22,7 @@ body {
     padding: 24px;
 }
 
+
 nav ul {
     font-size: 20px;
     display: flex;
@@ -103,6 +104,21 @@ nav a.active {
     z-index: 2;
 }
 
+/* lien texte paragraphe */
+.grid p a{
+    display: inline;
+    color: currentColor;
+}
+
+.grid p a:hover {
+    font-family: "Instrument";
+}
+
+.grid p a::before,
+.grid p a:hover::before {
+    content: none;
+}
+
 
 img {
     width: 100%;
@@ -166,14 +182,6 @@ header {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     padding: 0;
-}
-
-.singlePost__content__3col {
-    margin-bottom: 80px;
-}
-
-.label-stage {
-    margin-bottom: 80px;
 }
 
 
