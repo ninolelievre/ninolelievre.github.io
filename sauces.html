@@ -151,6 +151,28 @@
         stage.addEventListener("pointercancel", () => {
             swipeStartY = null;
         });
+
+        let touchStartY = null;
+
+        stage.addEventListener("touchstart", event => {
+            touchStartY = event.changedTouches[0].clientY;
+        }, { passive: true });
+
+        stage.addEventListener("touchend", event => {
+            if (touchStartY === null) return;
+
+            const distance = touchStartY - event.changedTouches[0].clientY;
+
+            if (Math.abs(distance) > 40) {
+                rotateLabels(distance > 0 ? 1 : -1);
+            }
+
+            touchStartY = null;
+        }, { passive: true });
+
+        stage.addEventListener("touchcancel", () => {
+            touchStartY = null;
+        }, { passive: true });
     </script>
 </body>
 
