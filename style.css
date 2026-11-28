@@ -277,13 +277,6 @@ body {
     transform: scale(0.78);
 }
 
-@media (max-width: 600px) {
-    .label-stage {
-        height: 110vw;
-    }
-}
-
-
 
 /*Amysum/Gangsters */
 
